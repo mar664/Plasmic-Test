@@ -32,10 +32,12 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal"; // plasmic-import: xx93QbkHH5i/codeComponent
-import TextInput from "../../TextInput"; // plasmic-import: xEccbKJRBI9/component
-import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
+import Link from "../../Link"; // plasmic-import: FST3lsHJsh/component
+import HeaderText from "../../HeaderText"; // plasmic-import: JUJxh7K9DX/component
+import NavbarMenuLinks from "../../NavbarMenuLinks"; // plasmic-import: emTkYl4Ziw/component
 import Button from "../../Button"; // plasmic-import: FxpPQ7-wWLy/component
+
+import { useScreenVariants as useScreenVariantsumbX3S4MCKk91P } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: UmbX3s4mCKk91P/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -43,9 +45,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_blank_project.module.css"; // plasmic-import: kLBHGn3Vn82YBnTDGnqJfk/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: fj3lrR6bqiKN2/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: 3VefNVZwxI7/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: nuudgiLMynC/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: logztJZIqxF/icon
+import imbLogosvgVe5Gkv7BXh from "./images/imbLogosvg.svg"; // plasmic-import: VE5gkv7bXH/picture
 
 export type PlasmicHomepage__VariantMembers = {};
 export type PlasmicHomepage__VariantsArgs = {};
@@ -58,13 +60,13 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
-  section?: p.Flex<"section">;
-  h1?: p.Flex<"h1">;
-  modal?: p.Flex<typeof AntdModal>;
-  freeBox?: p.Flex<"div">;
-  textInput?: p.Flex<typeof TextInput>;
-  reveal?: p.Flex<typeof Reveal>;
-  button?: p.Flex<typeof Button>;
+  headerSection?: p.Flex<"section">;
+  topLinksSection?: p.Flex<"div">;
+  topLinksLeft?: p.Flex<"div">;
+  topLinksRight?: p.Flex<"div">;
+  navbar?: p.Flex<"section">;
+  img?: p.Flex<typeof p.PlasmicImg>;
+  navbarMenuLinks?: p.Flex<typeof NavbarMenuLinks>;
 };
 
 export interface DefaultHomepageProps {
@@ -100,30 +102,9 @@ function PlasmicHomepage__RenderFunc(props: {
 
   const [$queries, setDollarQueries] = React.useState({});
 
-  const stateSpecs = React.useMemo(
-    () => [
-      {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "" as const
-      },
-      {
-        path: "textInput3",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "" as const
-      },
-      {
-        path: "modal.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      }
-    ],
-    [$props, $ctx]
-  );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsumbX3S4MCKk91P()
+  });
 
   return (
     <React.Fragment>
@@ -144,188 +125,611 @@ function PlasmicHomepage__RenderFunc(props: {
           )}
         >
           <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            data-plasmic-name={"headerSection"}
+            data-plasmic-override={overrides.headerSection}
+            className={classNames(projectcss.all, sty.headerSection)}
           >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.h1
-              )}
-            >
-              {"Welcome to your first page."}
-            </h1>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ydvq5
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "If you haven't already done so, go back and learn the basics by going through the Plasmic Levels tutorial.\n\nIt's always easier to start from examples! Add a new page using a template\u2014do this from the list of pages in the top toolbar.\n\nOr press the big blue + button to start inserting items into this page.\n\nIntegrate this project into your codebase\u2014press the "
-                  }
-                </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"Code"}
-                </span>
-                <React.Fragment>
-                  {
-                    " button in the top right and follow the quickstart instructions.\n\nJoin our Slack community (icon in bottom left) for help any time."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
-            <AntdModal
-              data-plasmic-name={"modal"}
-              data-plasmic-override={overrides.modal}
-              className={classNames("__wab_instance", sty.modal)}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                projectcss.plasmic_tokens,
-                plasmic_antd_5_hostless_css.plasmic_tokens
-              )}
-              modalScopeClassName={sty["modal__modal"]}
-              onOpenChange={p.generateStateOnChangeProp($state, [
-                "modal",
-                "open"
-              ])}
-              open={p.generateStateValueProp($state, ["modal", "open"])}
-              title={"Modal title"}
-            >
+            {(hasVariant(globalVariants, "screen", "mobile") ? true : true) ? (
               <div
-                data-plasmic-name={"freeBox"}
-                data-plasmic-override={overrides.freeBox}
-                className={classNames(projectcss.all, sty.freeBox)}
+                data-plasmic-name={"topLinksSection"}
+                data-plasmic-override={overrides.topLinksSection}
+                className={classNames(projectcss.all, sty.topLinksSection)}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9NdKt
-                  )}
-                >
-                  {"Modal content"}
+                <div className={classNames(projectcss.all, sty.freeBox__bItmF)}>
+                  <div
+                    data-plasmic-name={"topLinksLeft"}
+                    data-plasmic-override={overrides.topLinksLeft}
+                    className={classNames(projectcss.all, sty.topLinksLeft)}
+                  >
+                    <Link
+                      active={true}
+                      className={classNames("__wab_instance", sty.link__qqInZ)}
+                      type={"headerLink" as const}
+                    >
+                      {"Personal"}
+                    </Link>
+                    <Link
+                      className={classNames("__wab_instance", sty.link__xvaXx)}
+                      type={"headerLink" as const}
+                    >
+                      {"Business"}
+                    </Link>
+                    <Link
+                      className={classNames("__wab_instance", sty.link___8A6Al)}
+                      type={"headerLink" as const}
+                    >
+                      {"Community"}
+                    </Link>
+                    <Link
+                      className={classNames("__wab_instance", sty.link__sUfqo)}
+                      type={"headerLink" as const}
+                    >
+                      {"About"}
+                    </Link>
+                  </div>
+                  <div
+                    data-plasmic-name={"topLinksRight"}
+                    data-plasmic-override={overrides.topLinksRight}
+                    className={classNames(projectcss.all, sty.topLinksRight)}
+                  >
+                    <HeaderText
+                      className={classNames(
+                        "__wab_instance",
+                        sty.headerText__kbzGp
+                      )}
+                      color={"white" as const}
+                    />
+
+                    <HeaderText
+                      className={classNames(
+                        "__wab_instance",
+                        sty.headerText__l3Mad
+                      )}
+                      color={"white" as const}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__cwt20
+                        )}
+                      >
+                        {"BSB: 641 800"}
+                      </div>
+                    </HeaderText>
+                  </div>
                 </div>
               </div>
-            </AntdModal>
-          </section>
-          <TextInput
-            data-plasmic-name={"textInput"}
-            data-plasmic-override={overrides.textInput}
-            className={classNames("__wab_instance", sty.textInput)}
-            onChange={(...eventArgs) => {
-              p.generateStateOnChangeProp($state, ["textInput", "value"])(
-                (e => e.target?.value).apply(null, eventArgs)
-              );
-            }}
-            value={
-              p.generateStateValueProp($state, ["textInput", "value"]) ?? ""
-            }
-          />
-
-          <Reveal
-            data-plasmic-name={"reveal"}
-            data-plasmic-override={overrides.reveal}
-            className={classNames("__wab_instance", sty.reveal)}
-            triggerOnce={true}
-          >
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              onClick={async event => {
-                const $steps = {};
-                $steps["updateModalOpen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "a7Ko3E3f4",
-                            componentUuid: "fj3lrR6bqiKN2",
-                            argName: "variable"
-                          },
-                          () => ({
-                            objRoot: $state,
-                            variablePath: ["modal", "open"]
-                          })
-                        ),
-                        operation: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "a7Ko3E3f4",
-                            componentUuid: "fj3lrR6bqiKN2",
-                            argName: "operation"
-                          },
-                          () => 0
-                        ),
-                        value: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "a7Ko3E3f4",
-                            componentUuid: "fj3lrR6bqiKN2",
-                            argName: "value"
-                          },
-                          () => true
-                        )
-                      };
-                      return __wrapUserFunction(
-                        {
-                          type: "InteractionLoc",
-                          actionName: "updateVariable",
-                          interactionUuid: "a7Ko3E3f4",
-                          componentUuid: "fj3lrR6bqiKN2"
-                        },
-                        () =>
-                          (({ variable, value, startIndex, deleteCount }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            p.set(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]),
-                        actionArgs
-                      );
-                    })()
-                  : undefined;
-                if (
-                  typeof $steps["updateModalOpen"] === "object" &&
-                  typeof $steps["updateModalOpen"].then === "function"
-                ) {
-                  $steps["updateModalOpen"] = await __wrapUserPromise(
-                    {
-                      type: "InteractionLoc",
-                      actionName: "updateVariable",
-                      interactionUuid: "a7Ko3E3f4",
-                      componentUuid: "fj3lrR6bqiKN2"
-                    },
-                    $steps["updateModalOpen"]
-                  );
-                }
-              }}
-              submitsForm={true}
+            ) : null}
+            <section
+              data-plasmic-name={"navbar"}
+              data-plasmic-override={overrides.navbar}
+              className={classNames(projectcss.all, sty.navbar)}
             >
-              {"Button"}
-            </Button>
-          </Reveal>
+              <div className={classNames(projectcss.all, sty.freeBox__mc46)}>
+                <p.PlasmicImg
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"auto" as const}
+                  displayMaxHeight={"none" as const}
+                  displayMaxWidth={"100%" as const}
+                  displayMinHeight={"0" as const}
+                  displayMinWidth={"0" as const}
+                  displayWidth={"100px" as const}
+                  loading={"lazy" as const}
+                  src={{
+                    src: imbLogosvgVe5Gkv7BXh,
+                    fullWidth: 300,
+                    fullHeight: 125,
+                    aspectRatio: 2.402795
+                  }}
+                />
+
+                <NavbarMenuLinks
+                  data-plasmic-name={"navbarMenuLinks"}
+                  data-plasmic-override={overrides.navbarMenuLinks}
+                  className={classNames("__wab_instance", sty.navbarMenuLinks)}
+                />
+              </div>
+            </section>
+          </section>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__oQi2V)}
+          >
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__nASzZ)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tp5V
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{"Designs that "}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ textDecoration: "underline" }}
+                  >
+                    {"scale"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___7WbQd
+                )}
+              >
+                {
+                  "Orci dui condimentum rutrum laoreet hac purus porta sem sem a vivamus a posuere vel molestie."
+                }
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__lNdTm)}
+              >
+                <Button
+                  className={classNames("__wab_instance", sty.button__zKbql)}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__fjvk2)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg___0E6X)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__faLp8
+                    )}
+                  >
+                    {"Start now ->"}
+                  </div>
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button__fZklg)}
+                  color={"clear" as const}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__aoVsL)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__tcPrK)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6KIjD
+                    )}
+                  >
+                    {"Learn more\u2026"}
+                  </div>
+                </Button>
+              </p.Stack>
+            </p.Stack>
+          </p.Stack>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__x62XQ)}
+          >
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__keKIm)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__oQjV
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{"Designs that "}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ textDecoration: "underline" }}
+                  >
+                    {"scale"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rGYn
+                )}
+              >
+                {
+                  "Orci dui condimentum rutrum laoreet hac purus porta sem sem a vivamus a posuere vel molestie."
+                }
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ci8Td)}
+              >
+                <Button
+                  className={classNames("__wab_instance", sty.button__ts5Xu)}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__wgKfr)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__oBrgi)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0Wnca
+                    )}
+                  >
+                    {"Start now ->"}
+                  </div>
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button___7N5Dm)}
+                  color={"clear" as const}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__ld9Et)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__r2IO)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qd5Bt
+                    )}
+                  >
+                    {"Learn more\u2026"}
+                  </div>
+                </Button>
+              </p.Stack>
+            </p.Stack>
+          </p.Stack>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__lBjqF)}
+          >
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__dVtRd)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gluly
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{"Designs that "}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ textDecoration: "underline" }}
+                  >
+                    {"scale"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__e7PB
+                )}
+              >
+                {
+                  "Orci dui condimentum rutrum laoreet hac purus porta sem sem a vivamus a posuere vel molestie."
+                }
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__jg6Qm)}
+              >
+                <Button
+                  className={classNames("__wab_instance", sty.button___9Mj)}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__hgi0K)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__l4UVz)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__z4DB7
+                    )}
+                  >
+                    {"Start now ->"}
+                  </div>
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button__bfnu5)}
+                  color={"clear" as const}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__oV34C)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__he62)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__uxqkQ
+                    )}
+                  >
+                    {"Learn more\u2026"}
+                  </div>
+                </Button>
+              </p.Stack>
+            </p.Stack>
+          </p.Stack>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox___5LokG)}
+          >
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__sRwh1)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fvYb0
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{"Designs that "}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ textDecoration: "underline" }}
+                  >
+                    {"scale"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fWvTs
+                )}
+              >
+                {
+                  "Orci dui condimentum rutrum laoreet hac purus porta sem sem a vivamus a posuere vel molestie."
+                }
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__uzp6J)}
+              >
+                <Button
+                  className={classNames("__wab_instance", sty.button__tJnJg)}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__qbod1)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__a5Em)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gYnEs
+                    )}
+                  >
+                    {"Start now ->"}
+                  </div>
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button__nDimp)}
+                  color={"clear" as const}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__om6Pc)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__hlTf4)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wQkXv
+                    )}
+                  >
+                    {"Learn more\u2026"}
+                  </div>
+                </Button>
+              </p.Stack>
+            </p.Stack>
+          </p.Stack>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__mSa)}
+          >
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___2MLt)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wegjx
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{"Designs that "}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ textDecoration: "underline" }}
+                  >
+                    {"scale"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__t65W3
+                )}
+              >
+                {
+                  "Orci dui condimentum rutrum laoreet hac purus porta sem sem a vivamus a posuere vel molestie."
+                }
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__sGsT2)}
+              >
+                <Button
+                  className={classNames("__wab_instance", sty.button___0Ex0)}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__lamBj)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__z0HXq)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___7N1Ub
+                    )}
+                  >
+                    {"Start now ->"}
+                  </div>
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button__rjlbt)}
+                  color={"clear" as const}
+                  endIcon={
+                    <IconIcon
+                      className={classNames(projectcss.all, sty.svg__jiNcK)}
+                      role={"img"}
+                    />
+                  }
+                  startIcon={
+                    <ChecksvgIcon
+                      className={classNames(projectcss.all, sty.svg__fxBwd)}
+                      role={"img"}
+                    />
+                  }
+                  submitsForm={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yXabC
+                    )}
+                  >
+                    {"Learn more\u2026"}
+                  </div>
+                </Button>
+              </p.Stack>
+            </p.Stack>
+          </p.Stack>
         </div>
       </div>
     </React.Fragment>
@@ -335,34 +739,42 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "section",
-    "h1",
-    "modal",
-    "freeBox",
-    "textInput",
-    "reveal",
-    "button"
+    "headerSection",
+    "topLinksSection",
+    "topLinksLeft",
+    "topLinksRight",
+    "navbar",
+    "img",
+    "navbarMenuLinks"
   ],
-  section: ["section", "h1", "modal", "freeBox"],
-  h1: ["h1"],
-  modal: ["modal", "freeBox"],
-  freeBox: ["freeBox"],
-  textInput: ["textInput"],
-  reveal: ["reveal", "button"],
-  button: ["button"]
+  headerSection: [
+    "headerSection",
+    "topLinksSection",
+    "topLinksLeft",
+    "topLinksRight",
+    "navbar",
+    "img",
+    "navbarMenuLinks"
+  ],
+  topLinksSection: ["topLinksSection", "topLinksLeft", "topLinksRight"],
+  topLinksLeft: ["topLinksLeft"],
+  topLinksRight: ["topLinksRight"],
+  navbar: ["navbar", "img", "navbarMenuLinks"],
+  img: ["img"],
+  navbarMenuLinks: ["navbarMenuLinks"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  section: "section";
-  h1: "h1";
-  modal: typeof AntdModal;
-  freeBox: "div";
-  textInput: typeof TextInput;
-  reveal: typeof Reveal;
-  button: typeof Button;
+  headerSection: "section";
+  topLinksSection: "div";
+  topLinksLeft: "div";
+  topLinksRight: "div";
+  navbar: "section";
+  img: typeof p.PlasmicImg;
+  navbarMenuLinks: typeof NavbarMenuLinks;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -425,13 +837,13 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
-    modal: makeNodeComponent("modal"),
-    freeBox: makeNodeComponent("freeBox"),
-    textInput: makeNodeComponent("textInput"),
-    reveal: makeNodeComponent("reveal"),
-    button: makeNodeComponent("button"),
+    headerSection: makeNodeComponent("headerSection"),
+    topLinksSection: makeNodeComponent("topLinksSection"),
+    topLinksLeft: makeNodeComponent("topLinksLeft"),
+    topLinksRight: makeNodeComponent("topLinksRight"),
+    navbar: makeNodeComponent("navbar"),
+    img: makeNodeComponent("img"),
+    navbarMenuLinks: makeNodeComponent("navbarMenuLinks"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

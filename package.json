@@ -6,6 +6,7 @@
     "@plasmicapp/cli": "^0.1.294",
     "@plasmicapp/react-web": "^0.2.234",
     "@plasmicpkgs/antd5": "^0.0.83",
+    "@plasmicpkgs/plasmic-embed-css": "^0.1.133",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.149",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

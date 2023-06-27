@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "files",
@@ -231,7 +231,8 @@
           "displayName": "plasmic-antd5-date-picker",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDatePicker"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -251,7 +252,8 @@
           "displayName": "hostless-slider",
           "componentImportPath": "react-slick"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -271,7 +273,8 @@
           "displayName": "hostless-reveal",
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
@@ -320,6 +323,84 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
+        },
+        {
+          "id": "Tj6Oe-jFTy",
+          "name": "Menu",
+          "type": "managed",
+          "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicMenu.tsx",
+          "importSpec": {
+            "modulePath": "Menu.tsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicMenu.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "FST3lsHJsh",
+          "name": "Link",
+          "type": "managed",
+          "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicLink.tsx",
+          "importSpec": {
+            "modulePath": "Link.tsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicLink.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "JUJxh7K9DX",
+          "name": "HeaderText",
+          "type": "managed",
+          "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicHeaderText.tsx",
+          "importSpec": {
+            "modulePath": "HeaderText.tsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicHeaderText.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "emTkYl4Ziw",
+          "name": "NavbarMenuLinks",
+          "type": "managed",
+          "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicNavbarMenuLinks.tsx",
+          "importSpec": {
+            "modulePath": "NavbarMenuLinks.tsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicNavbarMenuLinks.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "WRM0BEC3CS",
+          "name": "NavLinkContainer",
+          "type": "managed",
+          "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicNavLinkContainer.tsx",
+          "importSpec": {
+            "modulePath": "NavLinkContainer.tsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicNavLinkContainer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "sSdXxYFyEs",
+          "name": "NavSubMenu",
+          "type": "managed",
+          "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicNavSubMenu.tsx",
+          "importSpec": {
+            "modulePath": "NavSubMenu.tsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicNavSubMenu.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -337,9 +418,40 @@
           "id": "logztJZIqxF",
           "name": "IconIcon",
           "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon.tsx"
+        },
+        {
+          "id": "Gqwa6DeJAl",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "aDyTX0prrq",
+          "name": "Icon3Icon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon3.tsx"
+        },
+        {
+          "id": "9MkRSXMJEb",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "t8W2xcAuVE",
+          "name": "Icon5Icon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon5.tsx"
+        },
+        {
+          "id": "7W0-Fdcas_",
+          "name": "Icon6Icon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon6.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "VE5gkv7bXH",
+          "name": "IMB-logo.svg",
+          "filePath": "plasmic/blank_project/images/imbLogosvg.svg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/blank_project/PlasmicGlobalContextsProvider.tsx",
       "codeComponents": [
@@ -354,6 +466,26 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ]
+    },
+    {
+      "projectId": "8PtdGodUbexNYgkuyBUcWu",
+      "projectApiToken": "34o5R5KswluuZ4sD83F88oQrcLWsNNeUpCptQ8Okf4hYqgjnHnX2idGAlhtB7WWQQelNAInf5XFazR1cGw",
+      "projectName": "plasmic-embed-css",
+      "version": "3.15.0",
+      "cssFilePath": "plasmic/plasmic_embed_css/plasmic_plasmic_embed_css.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/plasmic_embed_css/PlasmicGlobalContextsProvider.tsx",
+      "codeComponents": [
+        {
+          "id": "qF0uJxFztB",
+          "name": "EmbedCss",
+          "displayName": "global-embed-css",
+          "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
         }
       ]
     }

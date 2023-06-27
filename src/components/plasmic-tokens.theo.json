@@ -1,6 +1,16 @@
 {
   "props": [
     {
+      "name": "Light-Green",
+      "type": "color",
+      "value": "#B0D355",
+      "category": "color",
+      "meta": {
+        "projectId": "kLBHGn3Vn82YBnTDGnqJfk",
+        "id": "YqeVx9XUa"
+      }
+    },
+    {
       "name": "System: Bg Container",
       "type": "color",
       "value": "var(--antd-colorBgContainer)",
